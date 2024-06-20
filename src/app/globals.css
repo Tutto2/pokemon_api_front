@@ -3,31 +3,88 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --normal-clr: #b8b799;
+  --normal-opacity: #e6e7d2;
+  --fire-clr: #ee8130;
+  --fire-opacity: #fabd9c;
+  --water-clr: #6390f0;
+  --water-opacity: #9bbaf5;
+  --electric-clr: #f7d02c;
+  --electric-opacity: #f9e68c;
+  --grass-clr: #7ac74c;
+  --grass-opacity: #a3d98e;
+  --ice-clr: #96d9d6;
+  --ice-opacity: #b9ecea;
+  --fighting-clr: #c22e28;
+  --fighting-opacity: #e27975;
+  --poison-clr: #a33ea1;
+  --poison-opacity: #e08ff8;
+  --ground-clr: #e2bf65;
+  --ground-opacity: #d7c278;
+  --flying-clr: #a98ff3;
+  --flying-opacity: #cabaf9;
+  --psychic-clr: #f95587;
+  --psychic-opacity: #fa8cab;
+  --bug-clr: #a6b91a;
+  --bug-opacity: #c3d94d;
+  --rock-clr: #b6a136;
+  --rock-opacity: #b4a044;
+  --ghost-clr: #735797;
+  --ghost-opacity: #957ab2;
+  --dragon-clr: #6f35fc;
+  --dragon-opacity: #a37bfc;
+  --dark-clr: #705746;
+  --dark-opacity: #a18773;
+  --steel-clr: #b7b7ce;
+  --steel-opacity: #dbdbe9;
+  --fairy-clr: #fa90d7;
+  --fairy-opacity: #fbbae4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.text-shadow:hover {
+  text-shadow: 0.025rem 0.025rem 0.025rem rgb(236, 232, 202);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.menu-open {
+  @apply translate-x-0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.menu-closed {
+  @apply -translate-x-full;
+}
+
+.badge {
+  @apply flex items-center py-[0.18rem] sm:py-[0.26rem] px-[0.51rem] sm:px-[0.75rem] rounded-3xl text-center font-bold uppercase text-xs sm:text-[0.9rem] cursor-pointer transition-transform duration-300 hover:brightness-90 active:brightness-105 focus:brightness-90 focus:ring-2 focus:ring-slate-50 focus:text-white;
+}
+
+.small-logo {
+  @apply h-4 w-4 sm:h-[1.2rem] transition-transform hover:scale-105;
+}
+
+.link-icon {
+  @apply text-2xl sm:text-3xl hover:scale-110 hover:text-zinc-700;
+}
+
+.card {
+  @apply relative p-[0.45rem] sm:p-2 sm:pb-4 w-[100%] max-w-40 min-w-32 sm:w-[100%] sm:max-w-[22.5rem] sm:min-w-80 h-52 bg-[#f5f5f5] rounded-md hover:brightness-95 hover:cursor-pointer;
+}
+
+.debug-black {
+  border: 1px solid black;
+}
+
+.debug-green {
+  border: 1px solid forestgreen;
+}
+
+.debug-yellow {
+  border: 1px solid yellow;
+}
+
+.debug-red {
+  border: 1px solid rgb(238, 91, 91);
+}
+
+.debug-blue {
+  border: 1px solid cadetblue;
 }

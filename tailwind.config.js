@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const gradientsPlugin = require('./gradients')
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,12 +10,56 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        sans: ['DM Sans', 'sans-serif'],
       },
+      backgroundImage: {
+        'pokeball': "url('/images/background-img.jpg')"
+      },
+      screens: {
+        'xs': '495px',
+      }
     },
   },
-  plugins: [],
+  variants: {
+    extend: {
+      scrollbar: ['rounded'],
+    },
+  },
+  plugins: [
+    gradientsPlugin,
+    function ({ addUtilities }) {
+      addUtilities({
+        '.main-before': {
+          content: '""',
+          'background-color': 'rgba(255, 255, 255, 0.7)',
+          'z-index': 1,
+        },
+      }, ['before']);
+    },
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.scrollbar-thin': {
+          '&::-webkit-scrollbar': {
+            width: '0.7rem',
+            height: '0.7rem',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#5e5e5e',
+            borderRadius: '8px',
+          },
+          '&::-webkit-scrollbar-track': {
+            backgroundColor: '#aeaeae',
+          },
+        },
+        '.scrollbar-rounded': {
+          '&::-webkit-scrollbar-thumb': {
+            borderRadius: '10px',
+          },
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    },
+  ],
 };
