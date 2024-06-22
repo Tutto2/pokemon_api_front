@@ -11,7 +11,7 @@ const TypeBtn = (props) => {
       onClick={() => console.log(name)}
     >
       { logo && <img src={badgeImg} className="small-logo mr-2" /> }
-      {name}
+      { name }
     </button>
   )
 }
