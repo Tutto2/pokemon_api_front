@@ -9,16 +9,10 @@ const MainContent = () => {
   const [pokemons, setPokemons] = useState([])
 
   const fetchPokemons = () => {
-    if (!url) return
 
-    axios.get(url)
-      .then(({data: {results, next}}) => {
-        setPokemons((prevPokemons) => [...prevPokemons, ...results])
-        setUrl(next)
-      })
   }
 
-  useEffect(fetchPokemons, [url]);
+  // useEffect(fetchPokemons, [url]);
 
   return (
     <div
