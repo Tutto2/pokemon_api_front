@@ -1,19 +1,19 @@
 'use client'
 
-const TypeBtn = (props) => { 
-  const { name } = props
-  const badgeClass = `bg-${name.toLowerCase()}`
-  const badgeImg = `/images/${name}_Icon.png`
+const TypeBtn = (props) => {
+  const { name, logo } = props
+  const badgeClass = name === 'All Types' ? "bg-slate-100 justify-center" : `bg-${name.toLowerCase()}`
+  const badgeImg = `/images/${name.toLowerCase()}_Icon.png`
 
-  return( 
+  return(
     <button
-      className={`badge h-30 ${badgeClass}`}
-      onClick={() => console.log(name)} 
+      className={`badge ${badgeClass}`}
+      onClick={() => console.log(name)}
     >
-      <img src={badgeImg} className="small-logo" />
+      { logo && <img src={badgeImg} className="small-logo mr-2" /> }
       {name}
     </button>
-  ) 
+  )
 }
 
 export default TypeBtn

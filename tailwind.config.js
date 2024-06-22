@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const gradientsPlugin = require('./gradients')
-
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -27,7 +25,6 @@ module.exports = {
     },
   },
   plugins: [
-    gradientsPlugin,
     function ({ addUtilities }) {
       addUtilities({
         '.main-before': {

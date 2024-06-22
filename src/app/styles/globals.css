@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./background_types.css";
 
 :root {
   --normal-clr: #b8b799;
@@ -41,8 +42,16 @@
   --fairy-opacity: #fbbae4;
 }
 
+.text-shadow {
+  text-shadow: 0.15rem 0.15rem 0.15rem rgb(195, 195, 195)
+}
+
 .text-shadow:hover {
   text-shadow: 0.025rem 0.025rem 0.025rem rgb(236, 232, 202);
+}
+
+.clip-name {
+  clip-path: ellipse(80% 28% at 50% 50%);
 }
 
 .menu-open {
